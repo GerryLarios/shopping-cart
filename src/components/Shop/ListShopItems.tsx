@@ -1,5 +1,6 @@
 import React, { FunctionComponent, useState, useEffect } from 'react';
 import ShopItem from './ShopItem'
+import { NoProducts, Loading } from '../common'
 
 import { ProductType } from '../../types'
 import { fetchProducts } from '../../providers'
@@ -22,11 +23,11 @@ const ListShopItems: FunctionComponent = () => {
   }, [loading])
 
   if (loading) {
-    return <p>Loading...</p>
+    return <Loading />
   }
 
   if (!loading && products.length === 0) {
-    return <p>No products to show.</p>
+    return <NoProducts />
   }
 
   const handleAddToCart = (id: number) => console.log('Adding: ', id)
