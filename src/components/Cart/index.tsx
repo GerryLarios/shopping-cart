@@ -17,7 +17,9 @@ const Cart: FunctionComponent<CartProps> = ({ products }) => {
       {products.length === 0 ? (
         <NoProducts />
       ) : (
-        products.map(p => <CartItem product={p} handleVolume={handleVolume} handleRemove={handleRemove} />)
+        <div className="cart-items">
+          {products.map(p => <CartItem product={p} handleVolume={handleVolume} handleRemove={handleRemove} />)}
+        </div>
       )}
     </SectionWrapper>
   )

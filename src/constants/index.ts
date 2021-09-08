@@ -11,8 +11,8 @@ export const MOCK_PRODUCTS = [
   },
   {
     id: 2,
-    price: 953.90,
-    title: 'MacBook pro 16GB RAM',
+    price: 950,
+    title: 'MacBook Pro',
     category: 'technology'
   },
   {
@@ -24,7 +24,7 @@ export const MOCK_PRODUCTS = [
   {
     id: 4,
     price: 125,
-    title: 'Antisocial social club tshirt',
+    title: 'Suprime tshirt',
     category: 'clothes'
   },
   {
@@ -36,7 +36,7 @@ export const MOCK_PRODUCTS = [
   {
     id: 6,
     price: 299.99,
-    title: 'NBA Championship Rings',
+    title: 'NBA Champ Rings',
     category: 'jewelry'
   }
 ]

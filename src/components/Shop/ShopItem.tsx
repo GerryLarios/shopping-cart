@@ -14,7 +14,7 @@ const ShopItem: FunctionComponent<ShopItemProps> = ({
   handleAddToCart,
   addedToCart = false
 }) => (
-  <div className="cart-item">
+  <div className="shop-item">
     <Product {...product} />
     <div>
       <button disabled={addedToCart} onClick={handleAddToCart}>

@@ -15,7 +15,9 @@ const Shop: FunctionComponent<ShopProps> = ({ products }) => {
       {products.length === 0 ? (
         <NoProducts />
       ) : (
-        products.map(p => <ShopItem product={p} handleAddToCart={() => handleAddToCart(p.id)} />)
+        <div className="shop-items">
+          {products.map(p => <ShopItem product={p} handleAddToCart={() => handleAddToCart(p.id)} />)}
+        </div>
       )}
     </SectionWrapper>
   )
