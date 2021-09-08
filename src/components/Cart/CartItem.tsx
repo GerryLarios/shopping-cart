@@ -5,7 +5,7 @@ import { ProductType } from '../../types'
 
 type CartItemProps = {
   product: ProductType
-  handleVolume: (productId: number, num: number) => void
+  handleVolume: (productId: number, volume: number) => void
   handleRemove: (productId: number) => void
 }
 

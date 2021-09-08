@@ -1,18 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react'
 
 import Layout from './components/Layout'
+import Cart from './components/Cart'
+import Shop from './components/Shop'
 
-import { ListShopItems } from './components/Shop'
-import { ListCartItems } from './components/Cart'
+import { ProductType } from './types'
+import { fetchProducts } from './providers'
 
 const App = () => {
+  const [cartItems, setCartItems] = useState<ProductType[]>([])
+  const products = fetchProducts()
 
   return (
     <Layout>
-      <ListCartItems products={[]} />
-      <ListShopItems />
+      <Cart products={cartItems} />
+      <Shop products={products} />
     </Layout>
   )
 }
 
-export default App;
+export default App

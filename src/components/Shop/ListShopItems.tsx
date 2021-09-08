@@ -5,7 +5,6 @@ import { NoProducts, Loading } from '../common'
 import { ProductType } from '../../types'
 import { fetchProducts } from '../../providers'
 
-
 const ListShopItems: FunctionComponent = () => {
   const [loading, setLoading] = useState(true)
   const [products, setProducts] = useState<ProductType[]>([])
