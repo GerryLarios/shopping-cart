@@ -2,6 +2,21 @@ export const GITHUB_PROFILE_URL = 'https://github.com/GerryLarios'
 export const BASE_URL_API = 'https://fakestoreapi.com'
 export const BASE_PATH_IMAGES = '/static/images'
 
+export const FREE_SHIPPING_PRICE_REACH = 1000
+export const INTERNATIONAL_SHIPPING_PRICE = 15
+export const NORMAL_SHIPPING_PRICE = 5
+
+export const MOCK_DISCOUNTS = [
+  {
+    category: 'technology',
+    percentage: 5
+  },
+  {
+    category: 'clothes',
+    percentage: 10
+  }
+]
+
 export const MOCK_PRODUCTS = [
   {
     id: 1,
