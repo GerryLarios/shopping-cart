@@ -14,16 +14,18 @@ const Cart: FunctionComponent<CartProps> = ({ cartStatusMachine }) => {
       {cartStatusMachine.state.products.length === 0 ? (
         <NoProducts />
       ) : (
-        <div className="cart-items">
+        <>
           <h3>Total: &#36;{cartStatusMachine.state.total}</h3>
-          {cartStatusMachine.state.products.map(p =>
-            <CartItem
-              product={p}
-              handleRemove={cartStatusMachine.removeProduct}
-              handleVolume={cartStatusMachine.setProductVolume}
-            />
-          )}
-        </div>
+          <div className="cart-items">
+            {cartStatusMachine.state.products.map(p =>
+              <CartItem
+                product={p}
+                handleRemove={cartStatusMachine.removeProduct}
+                handleVolume={cartStatusMachine.setProductVolume}
+              />
+            )}
+          </div>
+        </>
       )}
     </SectionWrapper>
   )

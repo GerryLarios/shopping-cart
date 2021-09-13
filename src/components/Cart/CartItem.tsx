@@ -12,18 +12,20 @@ const CartItem: FunctionComponent<CartItemProps> = ({ product, handleVolume, han
   <div className="cart-item">
     <Product {...product} />
     <div>
-      <button onClick={() => handleVolume(product, product.volume + 1)}>
-        &plus;
-      </button>
-      <p>{product.volume}</p>
-      <button onClick={() => handleVolume(product, product.volume - 1)}>
-        &minus;
-      </button>
-    </div>
-    <div>
-      <button onClick={() => handleRemove(product)}>
-        Remove
-      </button>
+      <div>
+        <button onClick={() => handleVolume(product, product.volume + 1)}>
+          &#43;
+        </button>
+        <p>{product.volume}</p>
+        <button onClick={() => handleVolume(product, product.volume - 1)}>
+          &minus;
+        </button>
+      </div>
+      <div>
+        <button onClick={() => handleRemove(product)}>
+          Remove
+        </button>
+      </div>
     </div>
   </div>
 )

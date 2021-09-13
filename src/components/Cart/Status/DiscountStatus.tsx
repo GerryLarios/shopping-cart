@@ -18,7 +18,7 @@ class DiscountStatus implements StatusInterface {
         return acc + this.calculateDiscount(p.price, p.volume, 5)
       }
 
-      return acc + p.price
+      return acc + (p.price * p.volume)
     }, 0)
 
     this.machine.state = { ...this.machine.state, total }

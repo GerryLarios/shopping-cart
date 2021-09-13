@@ -30,16 +30,20 @@ class CartStatusMachine {
   }
 
   setProductVolume = (product: ProductType, volume: number) => {
-    const products = this.state.products.map(p => {
-      if (p.id === product.id) {
+    if (volume === 0) {
+      this.removeProduct(product)
+    } else {
+      const products = this.state.products.map(p => {
+        if (p.id !== product.id) {
+          return p
+        }
         return { ...p, volume }
-      }
-      return p
-    })
-    const total = this.calculateTotalPriceProduct(products)
-    this.state = { ...this.state, products, total }
-    this.status.handle()
-    this.applyChanges()
+      })
+      const total = this.calculateTotalPriceProduct(products)
+      this.state = { ...this.state, products, total }
+      this.status.handle()
+      this.applyChanges()
+    }
   }
 
   private calculateTotalPriceProduct = (products: CartItemProductType[]) => {
