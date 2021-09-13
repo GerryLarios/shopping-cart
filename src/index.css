@@ -11,39 +11,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-.shop-items {
-  display: flex;
-}
-
-.shop-item {
-  width: 200px;
-  height: 300px;
-  margin: 10px 20px;
-  padding: 20px;
-  border: 2px solid darkgray;
-  border-radius: 5px;
-  background-color: lightgray;
-}
-
-.shop-item img {
-  background-color: white;
-}
-
-.shop-item .product {
-  display: flex;
-  flex-direction: column;
-}
-
-.shop-item button {
-  width: 100%;
-}
-
-.text-align-center {
-  text-align: center;
-}
-
-.space-between {
-  display: flex;
-  justify-content: space-between;
-}
