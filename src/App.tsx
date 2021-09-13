@@ -14,7 +14,9 @@ const App = () => {
   const cartMachineStatus = new CartStatusMachine(state, setState)
   return (
     <Layout>
-      <Cart cartStatusMachine={cartMachineStatus} />
+      {cartMachineStatus.state.products.length !== 0 && (
+        <Cart cartStatusMachine={cartMachineStatus} />
+      )}
       <Shop
         products={fetchProducts()}
         addProductToCart={cartMachineStatus.addProduct}

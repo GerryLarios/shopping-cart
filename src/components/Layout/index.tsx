@@ -3,7 +3,7 @@ import React, { FunctionComponent } from 'react'
 const Layout: FunctionComponent = ({ children }) => (
   <>
     <header>
-      <h1>JS GUILD MARKET</h1>
+      <h1>JS</h1>
     </header>
     <article>
       {children}
