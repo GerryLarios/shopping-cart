@@ -5,28 +5,18 @@ import Shop from './components/Shop'
 
 import { CartStateType } from './types'
 import { fetchProducts } from './providers'
+import { DEFAULT_STATE } from './constants'
 
 import CartStatusMachine from './components/Cart/Status/CartStatusMachine'
 
-const DEFAULT_STATE = {
-  total: 0,
-  products: [],
-  user: {
-    isInternationalAddress: false,
-    isPremium: false
-  }
-}
-
 const App = () => {
   const [state, setState] = useState<CartStateType>(DEFAULT_STATE)
-  const products = fetchProducts()
   const cartMachineStatus = new CartStatusMachine(state, setState)
-
   return (
     <Layout>
       <Cart cartStatusMachine={cartMachineStatus} />
       <Shop
-        products={products}
+        products={fetchProducts()}
         addProductToCart={cartMachineStatus.addProduct}
         cartItemProducts={cartMachineStatus.state.products}
       />

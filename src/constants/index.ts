@@ -6,6 +6,19 @@ export const FREE_SHIPPING_PRICE_REACH = 1000
 export const INTERNATIONAL_SHIPPING_PRICE = 15
 export const NORMAL_SHIPPING_PRICE = 5
 
+export const DEFAULT_STATE = {
+  shippingPrice: 0,
+  productsPrice: 0,
+  totalPrice: 0,
+  products: [],
+  productsSelectionMade: false,
+  user: {
+    isInternationalAddress: false,
+    isPremium: false,
+    balance: 9999
+  }
+}
+
 export const MOCK_DISCOUNTS = [
   {
     category: 'technology',

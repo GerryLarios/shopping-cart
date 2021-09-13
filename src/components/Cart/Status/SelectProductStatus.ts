@@ -1,7 +1,7 @@
 import StatusInterface from './StatusInterface'
 import CartStatusMachine from './CartStatusMachine'
 
-class DiscountStatus implements StatusInterface {
+class SelectProductStatus implements StatusInterface {
   machine: CartStatusMachine
 
   constructor(machine: CartStatusMachine) {
@@ -9,7 +9,7 @@ class DiscountStatus implements StatusInterface {
   }
 
   handle = () => {
-    const total = this.machine.state.products.reduce((acc, p) => {
+    const totalPrice = this.machine.state.products.reduce((acc, p) => {
       if (p.category === 'clothes') {
         return acc + this.calculateDiscount(p.price, p.volume, 10)
       }
@@ -20,8 +20,7 @@ class DiscountStatus implements StatusInterface {
 
       return acc + (p.price * p.volume)
     }, 0)
-
-    this.machine.state = { ...this.machine.state, total }
+    this.machine.setStateMachineProps({ totalPrice, productsSelectionMade: false })
   }
 
   private calculateDiscount = (price: number, volume: number, discount: number) => {
@@ -30,4 +29,4 @@ class DiscountStatus implements StatusInterface {
   }
 }
 
-export default DiscountStatus
+export default SelectProductStatus
