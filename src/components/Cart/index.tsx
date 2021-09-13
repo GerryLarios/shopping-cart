@@ -2,23 +2,27 @@ import React, { FunctionComponent } from 'react';
 import CartItem from './CartItem'
 import { SectionWrapper, NoProducts } from '../common'
 
-import { ProductType } from '../../types'
+import { CartStatusMachine } from '../Cart/Status'
 
 type CartProps = {
-  products: ProductType[]
+  cartStatusMachine: CartStatusMachine
 }
 
-const Cart: FunctionComponent<CartProps> = ({ products }) => {
-  const handleVolume = (id: number, volume: number) => console.log('Add: ', id)
-  const handleRemove = (id: number) => console.log('Remove: ', id)
-
+const Cart: FunctionComponent<CartProps> = ({ cartStatusMachine }) => {
   return (
     <SectionWrapper title="Cart">
-      {products.length === 0 ? (
+      {cartStatusMachine.state.products.length === 0 ? (
         <NoProducts />
       ) : (
         <div className="cart-items">
-          {products.map(p => <CartItem product={p} handleVolume={handleVolume} handleRemove={handleRemove} />)}
+          <h3>Total: &#36;{cartStatusMachine.state.total}</h3>
+          {cartStatusMachine.state.products.map(p =>
+            <CartItem
+              product={p}
+              handleRemove={cartStatusMachine.removeProduct}
+              handleVolume={cartStatusMachine.setProductVolume}
+            />
+          )}
         </div>
       )}
     </SectionWrapper>

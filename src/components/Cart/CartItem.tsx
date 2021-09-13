@@ -1,27 +1,27 @@
 import React, { FunctionComponent } from 'react'
 import Product from '../common/Product'
-
-import { ProductType } from '../../types'
+import { CartItemProductType } from '../../types'
 
 type CartItemProps = {
-  product: ProductType
-  handleVolume: (productId: number, volume: number) => void
-  handleRemove: (productId: number) => void
+  product: CartItemProductType
+  handleVolume: (product: CartItemProductType, volume: number) => void
+  handleRemove: (product: CartItemProductType) => void
 }
 
 const CartItem: FunctionComponent<CartItemProps> = ({ product, handleVolume, handleRemove }) => (
   <div className="cart-item">
     <Product {...product} />
     <div>
-      <button onClick={() => handleVolume(product.id, 1)}>
+      <button onClick={() => handleVolume(product, product.volume + 1)}>
         &plus;
       </button>
-      <button onClick={() => handleVolume(product.id, -1)}>
+      <p>{product.volume}</p>
+      <button onClick={() => handleVolume(product, product.volume - 1)}>
         &minus;
       </button>
     </div>
     <div>
-      <button onClick={() => handleRemove(product.id)}>
+      <button onClick={() => handleRemove(product)}>
         Remove
       </button>
     </div>
