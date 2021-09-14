@@ -1,46 +1,33 @@
-# Getting Started with Create React App
+# shopping-cart
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## State Design Pattern
 
-## Available Scripts
+> I wrote this as a script for a talk. For more accurate infomation, please read the references.
 
-In the project directory, you can run:
+A behavioral design pattern that lets an object alter its *behavior* when its internal *state* changes.
+This pattern is closely related to the concept of *Finite-State Machine*, which is a mathematical model of computation.
 
-### `npm start`
+A program can behaves differently by *unique finite number of states*, and the program should switch from one state to another when is required.
+These switching rules are also finite and predetermined.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Problem
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+These kind of programs usually implements a lots of conditional operators in the entire code trying to select the appropriate behavior depending on the current state of the object.
+The biggest weakness of these program is that, once we start adding more states and rules,
+most methods will contain monstrous conditionals that pick the proper behavior of a method according to the current state.
+Code like this is very difficult to maintain because any change to the transition logic may require changing state conditionals in every method. 
+The problem tends to get bigger as a project evolves. It’s quite difficult to predict all possible states and transitions at the design stage
 
-### `npm test`
+### Solution
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This design pattern suggests the creating a class for each state of an object and extract the state-specific behaviors into these classes instead of
+implementing all behaviors on its own.
 
-### `npm run build`
+An object, called *context*, stores a reference to one of the *state* objects, and the context delegates all the state-related work to that state object.
+To transition the context into another state, replace the active state object with another object that represents that new state.
+This is possible only if all state classes follow the same interface and the context itself works with these objects through that interface.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### References
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+https://refactoring.guru/design-patterns/state
+https://en.wikipedia.org/wiki/Finite-state_machine
