@@ -17,7 +17,6 @@ const Cart: FunctionComponent<CartProps> = ({ cartStatusMachine }) => (
       <NoProducts />
     ) : (
       <>
-        <h3>Total: &#36;{cartStatusMachine.state.totalPrice}</h3>
         <div>
           {cartStatusMachine.state.productsSelectionMade ? (
             <OrderSection cartStatusMachine={cartStatusMachine} />

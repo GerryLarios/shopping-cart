@@ -1,18 +1,17 @@
-
 body {
   margin: 0;
   padding: 0;
   background-color: #f2f2f2;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  monospace;
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -41,7 +40,7 @@ footer {
 
 .section {
   background-color: #fff;
-  margin: 32px;
+  margin: 16px 32px;
   border: 2px solid transparent;
   border-radius: 5px;
   border-bottom: 1px solid hsla(0, 0%, 50%, .5);
@@ -55,4 +54,82 @@ footer {
   margin: 16px;
   display: flex;
   justify-content: space-around;
+}
+
+.section .cart-items {
+  margin: 16px;
+  display: flex;
+}
+
+.shop-items .shop-item, .cart-items .cart-item {
+  width: 200px;
+  height: 200px;
+}
+
+.btn {
+  width: 100%;
+  height: 30px;
+  font-weight: 500;
+  background-color: #0070c9;
+  border: 1px solid #07c;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.btn:disabled {
+  width: 100%;
+  height: 30px;
+  font-weight: 500;
+  background-color: #f2f2f2;
+  border: 1px solid #f2f2f2;
+  border-radius: 4px;
+  color: #333;
+  cursor: pointer;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.check-order {
+  margin: 8px;
+  width: 250px;
+}
+
+.volume-controls {
+  display: flex;
+  justify-content: space-between;
+  margin: 8px 0;
+}
+
+.shop-item .product-name, .cart-item .product-name {
+  display: flex;
+  justify-content: space-between;
+  margin: 16px 0;
+  font-weight: 500;
+}
+
+.cart-item {
+  margin: 16px;
+}
+
+.cart-item .remove-cart-item {
+  width: 100%;
+}
+
+.category {
+  margin: 0 0 8px 0;
+  font-weight: 300;
+  color: #0070c9;
+}
+
+.controls {
+  border-top: 2px solid #f2f2f2;
+}
+
+.controls button {
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
 }

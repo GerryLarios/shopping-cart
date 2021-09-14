@@ -6,21 +6,26 @@ type CartItemListProps = {
   cartStatusMachine: CartStatusMachine
 }
 
-const CartItemList: FunctionComponent<CartItemListProps> = ({ cartStatusMachine }) => (
-  <div className="cart-items">
-    <h4>Items</h4>
-    <div>
-      {
-        cartStatusMachine.state.products.map(
-          p => <CartItem product={p} handleRemove={cartStatusMachine.removeProduct} handleVolume={cartStatusMachine.setProductVolume} />
-        )
-      }
-    </div>
-    <button onClick={cartStatusMachine.order}>
-      Check order ({cartStatusMachine.state.products.length} products)
-    </button>
-  </div>
-)
-
+const CartItemList: FunctionComponent<CartItemListProps> = ({ cartStatusMachine }) => {
+  const { products, totalPrice } = cartStatusMachine.state
+  return (
+    <>
+      <div className="cart-items">
+        {products.map(p => {
+          return (
+            <CartItem
+              product={p}
+              handleRemove={cartStatusMachine.removeProduct}
+              handleVolume={cartStatusMachine.setProductVolume}
+            />
+          )
+        })}
+      </div>
+      <button className="btn check-order" onClick={cartStatusMachine.order}>
+        Check order (&#36;{totalPrice.toFixed(2)})
+      </button>
+    </>
+  )
+}
 
 export default CartItemList

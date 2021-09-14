@@ -11,8 +11,8 @@ type CartItemProps = {
 const CartItem: FunctionComponent<CartItemProps> = ({ product, handleVolume, handleRemove }) => (
   <div className="cart-item">
     <Product {...product} />
-    <div>
-      <div>
+    <div className="controls">
+      <div className="volume-controls">
         <button onClick={() => handleVolume(product, product.volume + 1)}>
           &#43;
         </button>
@@ -22,7 +22,7 @@ const CartItem: FunctionComponent<CartItemProps> = ({ product, handleVolume, han
         </button>
       </div>
       <div>
-        <button onClick={() => handleRemove(product)}>
+        <button className="remove-cart-item" onClick={() => handleRemove(product)}>
           Remove
         </button>
       </div>
