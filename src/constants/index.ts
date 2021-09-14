@@ -13,8 +13,8 @@ export const DEFAULT_STATE = {
   products: [],
   productsSelectionMade: false,
   user: {
-    isInternationalAddress: false,
-    isPremium: false,
+    isInternationalAddress: true,
+    isPremium: true,
     balance: 9999
   }
 }
@@ -64,7 +64,7 @@ export const MOCK_PRODUCTS = [
   {
     id: 6,
     price: 299.99,
-    title: 'NBA Champ Rings',
+    title: 'NBA Rings',
     category: 'jewelry'
   }
 ]

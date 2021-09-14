@@ -11,23 +11,26 @@ type CartProps = {
   cartStatusMachine: CartStatusMachine
 }
 
-const Cart: FunctionComponent<CartProps> = ({ cartStatusMachine }) => (
-  <SectionWrapper title="Cart">
-    {cartStatusMachine.state.products.length === 0 ? (
-      <NoProducts />
-    ) : (
-      <>
-        <div>
-          {cartStatusMachine.state.productsSelectionMade ? (
-            <OrderSection cartStatusMachine={cartStatusMachine} />
-          ) : (
-            <CartItemList cartStatusMachine={cartStatusMachine} />
-          )}
-        </div>
-      </>
-    )}
-  </SectionWrapper>
-)
+const Cart: FunctionComponent<CartProps> = ({ cartStatusMachine }) => {
+  const { products, productsSelectionMade } = cartStatusMachine.state
+  return (
+    <SectionWrapper title={productsSelectionMade ? 'Order information' : 'Cart Items'}>
+      {products.length === 0 ? (
+        <NoProducts />
+      ) : (
+        <>
+          <div>
+            {productsSelectionMade ? (
+              <OrderSection cartStatusMachine={cartStatusMachine} />
+            ) : (
+              <CartItemList cartStatusMachine={cartStatusMachine} />
+            )}
+          </div>
+        </>
+      )}
+    </SectionWrapper>
+  )
+}
 
 
 export default Cart

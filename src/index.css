@@ -92,7 +92,7 @@ footer {
   white-space: nowrap;
 }
 
-.check-order {
+.change-status {
   margin: 8px;
   width: 250px;
 }
@@ -115,7 +115,7 @@ footer {
 }
 
 .cart-item .remove-cart-item {
-  width: 100%;
+  width: 50px;
 }
 
 .category {
@@ -132,4 +132,37 @@ footer {
   background-color: transparent;
   cursor: pointer;
   border: none;
+}
+
+.order-section {
+  margin: 16px;
+}
+
+.order-detail-wrapper {
+  margin: 16px 0;
+}
+
+.order-detail-wrapper h5 {
+  margin: 8px 0;
+}
+
+.order-detail {
+  width: 200px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.order-detail-tags {
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 300;
+  font-size: small;
+  color: #0070c9;
+}
+
+.gray-info {
+  font-size: small;
+  font-weight: 400;
+  margin: 16px 0;
 }

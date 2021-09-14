@@ -21,7 +21,7 @@ const CartItemList: FunctionComponent<CartItemListProps> = ({ cartStatusMachine 
           )
         })}
       </div>
-      <button className="btn check-order" onClick={cartStatusMachine.order}>
+      <button className="btn change-status" onClick={cartStatusMachine.order}>
         Check order (&#36;{totalPrice.toFixed(2)})
       </button>
     </>
