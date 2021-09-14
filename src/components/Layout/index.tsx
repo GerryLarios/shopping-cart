@@ -1,9 +1,14 @@
 import React, { FunctionComponent } from 'react'
 
-const Layout: FunctionComponent = ({ children }) => (
+type LayoutProps = {
+  userAccountBalance: number
+}
+
+const Layout: FunctionComponent<LayoutProps> = ({ children, userAccountBalance }) => (
   <>
     <header>
       <h1>JS</h1>
+      <p>Your balance: &#36;{userAccountBalance.toFixed(2)}</p>
     </header>
     <article>
       {children}

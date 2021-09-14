@@ -6,7 +6,7 @@ const Product: FunctionComponent<ProductType> = ({ title, price, category, image
     <img src={image} alt={title} />
     <div className="product-name">
       <p>{title}</p>
-      <p>&#36;{price}</p>
+      <p>&#36;{price.toFixed(2)}</p>
     </div>
     <p className="category">{category}</p>
   </div>

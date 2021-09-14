@@ -13,7 +13,7 @@ const App = () => {
   const [state, setState] = useState<CartStateType>(DEFAULT_STATE)
   const cartMachineStatus = new CartStatusMachine(state, setState)
   return (
-    <Layout>
+    <Layout userAccountBalance={cartMachineStatus.state.user.balance}>
       {cartMachineStatus.state.products.length !== 0 && (
         <Cart cartStatusMachine={cartMachineStatus} />
       )}
